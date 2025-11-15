@@ -1,0 +1,646 @@
+/* ==================== VARIABLES & RESET ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #673ab7;
+    --primary-dark: #5e35b1;
+    --primary-light: #9575cd;
+    --text: #202124;
+    --text-light: #5f6368;
+    --border: #dadce0;
+    --bg: #f1f3f4;
+    --white: #ffffff;
+    --success: #1e8e3e;
+    --error: #d93025;
+    --radius: 8px;
+    --shadow: 0 1px 3px rgba(60, 64, 67, 0.3), 0 4px 8px rgba(60, 64, 67, 0.15);
+    --shadow-hover: 0 2px 6px rgba(60, 64, 67, 0.3), 0 6px 12px rgba(60, 64, 67, 0.15);
+}
+
+body {
+    font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    padding: 20px 10px;
+}
+
+/* ==================== CONTAINER ==================== */
+.container {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* ==================== HEADER ==================== */
+.form-header {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+}
+
+.header-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.header-content {
+    padding: 24px 24px 22px;
+    border-top: 10px solid var(--primary);
+}
+
+.header-content h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.header-content p {
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+/* ==================== FORM ==================== */
+.scholarship-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-section {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ==================== FORM QUESTIONS ==================== */
+.form-question {
+    margin-bottom: 24px;
+}
+
+.form-question:last-child {
+    margin-bottom: 0;
+}
+
+.form-question label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 8px;
+}
+
+.required {
+    color: var(--error);
+    margin-left: 2px;
+}
+
+/* Input Styles */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+input[type="number"],
+input[type="url"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-family: inherit;
+    transition: all 0.2s;
+    background: var(--white);
+    color: var(--text);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(103, 58, 183, 0.1);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-light);
+    opacity: 0.7;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235f6368' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+}
+
+/* Error State */
+input.error,
+select.error,
+textarea.error {
+    border-color: var(--error);
+}
+
+.error-msg {
+    display: block;
+    color: var(--error);
+    font-size: 0.75rem;
+    margin-top: 4px;
+    min-height: 18px;
+}
+
+/* ==================== FORM ROW ==================== */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+@media (max-width: 600px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==================== RADIO & CHECKBOX ==================== */
+.radio-options,
+.checkbox-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.radio-options label,
+.checkbox-options label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 400;
+    padding: 8px 0;
+}
+
+.radio-options input[type="radio"],
+.checkbox-options input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    cursor: pointer;
+    accent-color: var(--primary);
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    padding: 16px;
+    background: var(--bg);
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+}
+
+.checkbox-label:hover {
+    background: #e8eaed;
+}
+
+.checkbox-label input[type="checkbox"] {
+    margin-right: 12px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.checkbox-label span {
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+/* ==================== DYNAMIC FIELDS ==================== */
+#achievementsList,
+#evidenceList {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+#achievementsList input,
+#evidenceList input {
+    position: relative;
+}
+
+.btn-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 16px;
+    background: transparent;
+    color: var(--primary);
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-add:hover {
+    background: rgba(103, 58, 183, 0.08);
+}
+
+/* ==================== IMAGE UPLOAD ==================== */
+input[type="file"] {
+    padding: 8px;
+    border: 1px dashed var(--border);
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+input[type="file"]::file-selector-button {
+    padding: 8px 16px;
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 12px;
+    font-size: 0.875rem;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background: var(--primary-dark);
+}
+
+#imagePreview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.preview-item {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 1;
+}
+
+.preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.preview-remove {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.preview-remove:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+/* ==================== FORM ACTIONS ==================== */
+.form-actions {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    gap: 12px;
+    justify-content: flex-start;
+}
+
+.btn-submit,
+.btn-clear {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-submit {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-submit:hover {
+    background: var(--primary-dark);
+    box-shadow: var(--shadow-hover);
+}
+
+.btn-clear {
+    background: transparent;
+    color: var(--primary);
+}
+
+.btn-clear:hover {
+    background: rgba(103, 58, 183, 0.08);
+}
+
+/* ==================== MODAL ==================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-content {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 32px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    box-shadow: var(--shadow-hover);
+    animation: slideUp 0.3s ease;
+}
+
+.modal-content.large {
+    max-width: 700px;
+    text-align: left;
+}
+
+.modal-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--success);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    margin: 0 auto 20px;
+}
+
+.modal-content h2,
+.modal-content h3 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: var(--text);
+}
+
+.modal-content p {
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.btn-close {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--text-light);
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.btn-close:hover {
+    background: var(--bg);
+}
+
+/* Score Display */
+.score-result {
+    margin: 24px 0;
+}
+
+.score-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+}
+
+.score-circle span {
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.score-circle small {
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+#scoreText {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+/* Modal Actions */
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 24px;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+}
+
+.btn-secondary {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.btn-secondary:hover {
+    background: var(--border);
+}
+
+/* Data Display */
+#dataDisplay {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text);
+    border: 1px solid var(--border);
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 600px) {
+    body {
+        padding: 12px 8px;
+    }
+
+    .header-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .header-image {
+        height: 150px;
+    }
+
+    .form-section {
+        padding: 20px 16px;
+    }
+
+    .section-title {
+        font-size: 1.25rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .btn-submit,
+    .btn-clear {
+        width: 100%;
+    }
+
+    .modal-content {
+        padding: 24px 20px;
+    }
+
+    .score-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .score-circle span {
+        font-size: 2.5rem;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+    }
+}
+
+/* ==================== UTILITIES ==================== */
+.hidden {
+    display: none;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-light);
+}
+

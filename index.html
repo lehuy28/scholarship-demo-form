@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn Xét Học Bổng Sinh Viên</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Image -->
+        <div class="form-header">
+            <img src="images/pexels-pixabay-267885.jpg" 
+                 alt="Scholarship Banner" class="header-image">
+            <div class="header-content">
+                <h1>Đơn Xét Học Bổng Sinh Viên</h1>
+                <p>Vui lòng điền đầy đủ thông tin để được xét duyệt học bổng</p>
+            </div>
+        </div>
+
+        <!-- Navigation to Dashboard -->
+        <div class="nav-links">
+            <a href="dashboard.html" class="btn-dashboard">📊 Xem danh sách đơn</a>
+        </div>
+
+        <!-- Main Form -->
+        <form id="scholarshipForm" class="scholarship-form">
+            
+            <!-- Thông tin cá nhân -->
+            <section class="form-section">
+                <h2 class="section-title">Thông tin cá nhân</h2>
+                
+                <div class="form-question">
+                    <label>Họ và tên <span class="required">*</span></label>
+                    <input type="text" name="fullName" required placeholder="Nhập họ và tên đầy đủ">
+                    <span class="error-msg"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-question">
+                        <label>Mã sinh viên <span class="required">*</span></label>
+                        <input type="text" name="studentId" required placeholder="VD: SV2023001">
+                        <span class="error-msg"></span>
+                    </div>
+                    <div class="form-question">
+                        <label>Ngày sinh <span class="required">*</span></label>
+                        <input type="date" name="birthDate" required>
+                        <span class="error-msg"></span>
+                    </div>
+                </div>
+
+                <div class="form-question">
+                    <label>Giới tính <span class="required">*</span></label>
+                    <div class="radio-options">
+                        <label><input type="radio" name="gender" value="male" required> Nam</label>
+                        <label><input type="radio" name="gender" value="female"> Nữ</label>
+                        <label><input type="radio" name="gender" value="other"> Khác</label>
+                    </div>
+                    <span class="error-msg"></span>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-question">
+                        <label>Email <span class="required">*</span></label>
+                        <input type="email" name="email" required placeholder="example@university.edu.vn">
+                        <span class="error-msg"></span>
+                    </div>
+                    <div class="form-question">
+                        <label>Số điện thoại <span class="required">*</span></label>
+                        <input type="tel" name="phone" required placeholder="0912345678">
+                        <span class="error-msg"></span>
+                    </div>
+                </div>
+
+                <div class="form-question">
+                    <label>Địa chỉ thường trú <span class="required">*</span></label>
+                    <textarea name="address" required rows="2" placeholder="Số nhà, đường, phường/xã, quận/huyện, tỉnh/thành phố"></textarea>
+                    <span class="error-msg"></span>
+                </div>
+            </section>
+
+            <!-- Thông tin học tập -->
+            <section class="form-section">
+                <h2 class="section-title">Thông tin học tập</h2>
+
+                <div class="form-row">
+                    <div class="form-question">
+                        <label>Ngành học <span class="required">*</span></label>
+                        <select name="major" required>
+                            <option value="">-- Chọn ngành học --</option>
+                            <option value="cntt">Công nghệ thông tin</option>
+                            <option value="ktpm">Kỹ thuật phần mềm</option>
+                            <option value="httt">Hệ thống thông tin</option>
+                            <option value="ktmt">Kỹ thuật máy tính</option>
+                            <option value="antt">An toàn thông tin</option>
+                            <option value="khmt">Khoa học máy tính</option>
+                            <option value="other">Khác</option>
+                        </select>
+                        <span class="error-msg"></span>
+                    </div>
+                    <div class="form-question">
+                        <label>Năm học <span class="required">*</span></label>
+                        <select name="year" required>
+                            <option value="">-- Chọn năm --</option>
+                            <option value="1">Năm 1</option>
+                            <option value="2">Năm 2</option>
+                            <option value="3">Năm 3</option>
+                            <option value="4">Năm 4</option>
+                            <option value="5">Năm 5</option>
+                        </select>
+                        <span class="error-msg"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-question">
+                        <label>Học kỳ hiện tại <span class="required">*</span></label>
+                        <select name="semester" required>
+                            <option value="">-- Chọn học kỳ --</option>
+                            <option value="1">Học kỳ 1</option>
+                            <option value="2">Học kỳ 2</option>
+                            <option value="3">Học kỳ hè</option>
+                        </select>
+                        <span class="error-msg"></span>
+                    </div>
+                    <div class="form-question">
+                        <label>GPA tích lũy (thang điểm 4.0) <span class="required">*</span></label>
+                        <input type="number" name="gpa" step="0.01" min="0" max="4" required placeholder="3.50">
+                        <span class="error-msg"></span>
+                    </div>
+                </div>
+
+                <div class="form-question">
+                    <label>Số tín chỉ đã hoàn thành <span class="required">*</span></label>
+                    <input type="number" name="credits" min="0" required placeholder="60">
+                    <span class="error-msg"></span>
+                </div>
+
+                <div class="form-question">
+                    <label>Xếp loại học lực <span class="required">*</span></label>
+                    <div class="radio-options">
+                        <label><input type="radio" name="rank" value="excellent" required> Xuất sắc</label>
+                        <label><input type="radio" name="rank" value="good"> Giỏi</label>
+                        <label><input type="radio" name="rank" value="fair"> Khá</label>
+                        <label><input type="radio" name="rank" value="average"> Trung bình</label>
+                    </div>
+                    <span class="error-msg"></span>
+                </div>
+            </section>
+
+            <!-- Hoàn cảnh gia đình -->
+            <section class="form-section">
+                <h2 class="section-title">Hoàn cảnh gia đình</h2>
+
+                <div class="form-row">
+                    <div class="form-question">
+                        <label>Số người trong gia đình <span class="required">*</span></label>
+                        <input type="number" name="familyMembers" min="1" required placeholder="4">
+                        <span class="error-msg"></span>
+                    </div>
+                    <div class="form-question">
+                        <label>Thu nhập gia đình/tháng (VNĐ) <span class="required">*</span></label>
+                        <input type="number" name="income" min="0" required placeholder="5000000">
+                        <span class="error-msg"></span>
+                    </div>
+                </div>
+
+                <div class="form-question">
+                    <label>Hoàn cảnh đặc biệt (chọn tất cả nếu có)</label>
+                    <div class="checkbox-options">
+                        <label><input type="checkbox" name="situation" value="orphan"> Mồ côi</label>
+                        <label><input type="checkbox" name="situation" value="disability"> Khuyết tật</label>
+                        <label><input type="checkbox" name="situation" value="poor"> Hộ nghèo/Cận nghèo</label>
+                        <label><input type="checkbox" name="situation" value="ethnic"> Dân tộc thiểu số</label>
+                        <label><input type="checkbox" name="situation" value="single"> Cha/Mẹ đơn thân</label>
+                    </div>
+                </div>
+
+                <div class="form-question">
+                    <label>Ghi chú thêm về hoàn cảnh</label>
+                    <textarea name="familyNote" rows="3" placeholder="Mô tả chi tiết về hoàn cảnh gia đình (nếu có)..."></textarea>
+                </div>
+            </section>
+
+            <!-- Thành tích & Học bổng -->
+            <section class="form-section">
+                <h2 class="section-title">Thành tích & Học bổng</h2>
+
+                <div class="form-question">
+                    <label>Loại học bổng đăng ký <span class="required">*</span></label>
+                    <select name="scholarshipType" required>
+                        <option value="">-- Chọn loại học bổng --</option>
+                        <option value="academic">Học bổng khuyến khích học tập</option>
+                        <option value="merit">Học bổng tài năng</option>
+                        <option value="need">Học bổng hỗ trợ tài chính</option>
+                        <option value="combined">Học bổng kết hợp (học tập + hoàn cảnh)</option>
+                    </select>
+                    <span class="error-msg"></span>
+                </div>
+
+                <div class="form-question">
+                    <label>Thành tích đạt được</label>
+                    <div id="achievementsList">
+                        <input type="text" class="achievement-input" placeholder="VD: Giải nhất Olympic Tin học sinh viên 2024">
+                    </div>
+                    <button type="button" class="btn-add" onclick="addAchievement()">+ Thêm thành tích</button>
+                </div>
+
+                <div class="form-question">
+                    <label>Link minh chứng (Google Drive, Dropbox...)</label>
+                    <div id="evidenceList">
+                        <input type="url" class="evidence-input" placeholder="https://drive.google.com/...">
+                    </div>
+                    <button type="button" class="btn-add" onclick="addEvidence()">+ Thêm link</button>
+                </div>
+
+                <div class="form-question">
+                    <label>Ảnh minh chứng (chỉ preview, không lưu trữ)</label>
+                    <input type="file" id="imageUpload" accept="image/*" multiple>
+                    <div id="imagePreview"></div>
+                </div>
+            </section>
+
+            <!-- Cam kết -->
+            <section class="form-section">
+                <div class="form-question">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="agreement" required>
+                        <span>
+                            Tôi cam đoan các thông tin trên là hoàn toàn chính xác và chịu trách nhiệm 
+                            trước pháp luật về tính xác thực của thông tin đã cung cấp.
+                            <span class="required">*</span>
+                        </span>
+                    </label>
+                    <span class="error-msg"></span>
+                </div>
+            </section>
+
+            <!-- Submit Buttons -->
+            <div class="form-actions">
+                <button type="submit" class="btn-submit" id="submitBtn">
+                    <span class="btn-text">Nộp đơn</span>
+                    <span class="btn-loading" style="display: none;">Đang gửi...</span>
+                </button>
+                <button type="button" class="btn-clear" onclick="clearForm()">Xóa form</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-icon">✓</div>
+            <h2>Nộp đơn thành công!</h2>
+            <p>Đơn xét học bổng của bạn đã được lưu vào hệ thống.</p>
+            <div class="score-result">
+                <div class="score-circle">
+                    <span id="scoreValue">0</span>
+                    <small>điểm</small>
+                </div>
+                <p id="scoreText"></p>
+            </div>
+            <div class="modal-actions">
+                <a href="dashboard.html" class="btn-primary">📊 Xem danh sách</a>
+                <button class="btn-secondary" onclick="closeModal()">Nộp đơn mới</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDlOwzwSO_ZG1-T6q9AXnPPbQf38_HV-BI",
+            authDomain: "form-demo-project.firebaseapp.com",
+            projectId: "form-demo-project",
+            storageBucket: "form-demo-project.firebasestorage.app",
+            messagingSenderId: "829100449442",
+            appId: "1:829100449442:web:0ad0377aa59a0eaf8281fb"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        window.db = getFirestore(app);
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
